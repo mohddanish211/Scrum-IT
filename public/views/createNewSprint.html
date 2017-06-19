@@ -1,0 +1,22 @@
+<div class="col-md-5">
+    <form class="form-signin" method="get">
+       <h4>Sprint Details</h4>
+       <h5 style="color:red">{{sprintRunningError}}</h5>
+       <h5 style="color:green">{{sprintRunningSuccess}}</h5>
+      <input type="text" class="form-control" ng-model="sprintName" placeholder="Sprint Name" required/><br/>
+      <input type="text" class="form-control" ng-model="sprintDescription" placeholder="Description" required/><br/>
+       <input type="date" value="" class="form-control" ng-model="sprintStartDate" placeholder="Sprint Start Date" required/><br/>
+      <input type="date" class="form-control" ng-model="sprintEndDate" placeholder="Sprint Start Date" required/><br/>
+      <input type="text" class="form-control" ng-model="estimatedEffort" placeholder="Estimated Effort (in man hours)" required/><br/> 
+      <button class="btn btn-lg btn-primary btn-block" ng-click="createNewSprint()" type="submit">
+          <span class="glyphicon glyphicon-log-in"></span> Create New Sprint
+      </button> 
+    </form>
+</div>
+<div class="col-md-7">
+  <h4>Product Backlog Items</h4>
+  <a href="#" style="height:100px;" editable-select="sprintBacklog.userStory" e-multiple e-ng-options="s._id as s.name for s in userStories">
+    {{ showUserStory() }}
+  </a>
+</div>
+

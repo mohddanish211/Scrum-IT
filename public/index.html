@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>SCRUM-iT</title>
+
+     <!-- CSS -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/dashboard.css"> <!-- custom styles -->
+    <link rel="stylesheet" href="css/tables.css">
+
+	<!-- JS -->
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+	<script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src= "libs/angular-xeditable/dist/js/xeditable.min.js"></script>
+    <script src="libs/bootstrap/js/modal.js"></script>
+    <script src="libs/bootstrap/js/dropdown.js"></script>
+    <script src="libs/socket.io-client/socket.io.js"></script> 
+    <script src="libs/angular-socket-io/socket.js"></script>
+    <script src="libs/highcharts/highcharts.js"></script>
+    <script src="libs/highcharts/modules/exporting.js"></script>
+     
+	<!-- Angular Controllers -->
+    <script src="js/controllers/BacklogItemsControllerModule.js"></script>
+	<script src="js/controllers/DashboardControllerModule.js"></script>
+	<script src="js/controllers/MasterTablesControllerModule.js"></script>
+    <script src="js/controllers/PriorityControllerModule.js"></script>
+    <script src="js/controllers/ProjectControllerModule.js"></script>
+    <script src="js/controllers/RoleControllerModule.js"></script>
+	<script src="js/controllers/TaskSettingsControllerModule.js"></script>
+    <script src="js/controllers/StatusControllerModule.js"></script>
+    <script src="js/controllers/UserControllerModule.js"></script>
+    <script src="js/controllers/UserStoryTypeControllerModule.js"></script>
+    <script src="js/controllers/LoginControllerModule.js"></script>
+    <script src="js/controllers/ProjectSettingsControllerModule.js"></script>
+    <script src="js/controllers/AssignProductOwnerControllerModule.js"></script>
+    <script src="js/controllers/AssignedProjectMembersControllerModule.js"></script>
+    <script src="js/controllers/ChatControllerModule.js"></script>
+    <script src="js/controllers/CreateNewSprintControllerModule.js"></script>
+    <script src="js/controllers/ViewCurrentSprintControllerModule.js"></script>
+    <script src="js/controllers/SprintHistoryControllerModule.js"></script>
+    <script src="js/controllers/CompletedBacklogItemsControllerModule.js"></script>
+    <script src="js/controllers/ClosedBacklogItemsControllerModule.js"></script>
+    
+    
+    
+	<!-- Angular Services -->
+	<script src="js/services/BacklogServiceModule.js"></script>
+    <script src="js/services/MasterTablesServiceModule.js"></script>
+    <script src="js/services/PriorityServiceModule.js"></script>
+    <script src="js/services/ProjectServiceModule.js"></script>
+    <script src="js/services/RoleServiceModule.js"></script>
+    <script src="js/services/StatusServiceModule.js"></script>
+    <script src="js/services/UserServiceModule.js"></script>
+    <script src="js/services/UserStoryTypeServiceModule.js"></script>
+    <script src="js/services/LoginServiceModule.js"></script>
+    <script src="js/services/SprintServiceModule.js"></script>
+    <script src="js/services/ChatServiceModule.js"></script>
+    <script src="js/services/SprintBacklogServiceModule.js"></script>
+    
+    
+	<script src="js/appRoutes.js"></script>
+	<script src="js/app.js"></script>
+    
+</head>
+<body ng-app="scrumit">
+     <div ui-view></div>
+</body>
+</html>
+

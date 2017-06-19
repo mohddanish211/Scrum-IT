@@ -1,0 +1,23 @@
+<div>
+    <table class="tables">
+        <thead>
+            <tr>
+              <th><b>Name</b></th>
+              <th>Description</th>
+              <th>Created By</th>
+              <th>Status</th>
+              <th></th>
+              
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="userStory in userStoryList">
+            <td>{{ userStory.name || "empty" }}</td>
+            <td>{{ userStory.description || "empty" }}</td>
+            <td>{{ userStory.createdDate || "empty" }}</td>
+            <td>{{ userStory.statusId.name || "empty" }}</td>
+            <td><button type="button" class="btn btn-info" ng-click="closeUserStory(userStory,userStory._id)">Close</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>

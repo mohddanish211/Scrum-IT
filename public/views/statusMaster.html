@@ -1,0 +1,52 @@
+    
+<div class="tab-content">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addStatusModal">Add Status</button>
+    <!-- Modal -->
+    <div>
+           <div class="modal fade" id="addStatusModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Status</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="Status Name">Status Name:</label>
+                            <input type="text" class="form-control" ng-model="statusName">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Status Description:</label>
+                                <textarea  ng-model="statusDescription" class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-md" ng-click="addNewStatus()">Save Status</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+<div class="forList">
+    <table class="tables">
+        <thead>
+            <tr>
+              <th>Status Name</th>
+              <th>Status Description</th>
+              <th></th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="status in statuses">
+            <td><a href="#" onaftersave='updateStatus(status._id,status.name,status.description)' editable-text="status.name">{{ status.name || "empty" }}</a></td>
+            <td><a href="#" onaftersave='updateStatus(status._id,status.name,status.description)' editable-text="status.description">{{ status.description || "empty" }}</a></td>
+            <td><button type="button" class="btn btn-danger" ng-click="deleteStatus(status._id)">Delete</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>
+    </div>

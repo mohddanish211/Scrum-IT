@@ -1,0 +1,17 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "font-awesome": "fontawesome#^4.5.0",
+    "jquery-ui": "latest",
+    "angular-ui-router": "latest",
+    "angular-xeditable": "^0.1.9",
+    "socket.io": "^1.4.5",
+    "angular-socket-io": "^0.7.0",
+    "socket.io-client": "^1.4.5",
+    "highcharts": "^4.2.3"
+  }
+}

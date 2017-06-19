@@ -1,0 +1,23 @@
+<h1 class="page-header">Assigned Project(s)</h1>
+ 
+<div class="forList">
+    <table class="tables">
+        <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Project Description</th>
+              <th></th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+             <td colspan="3" ng-model="noProjectAssigned" style="color:red">{{noProjectAssigned}}</td>
+         </tr>
+        <tr ng-repeat="project in projects">
+            <td><a href="#" onaftersave='updateProject(project._id,project.name,project.description)' editable-text="project.name">{{ project.name || "empty" }}</a></td>
+            <td><a href="#" onaftersave='updateProject(project._id,project.name,project.description)' editable-text="project.description">{{ project.description || "empty" }}</a></td>
+            <td><button type="button" class="btn btn-danger" ng-click="goToHomePage(project._id, project.name)">Home</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>

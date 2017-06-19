@@ -1,0 +1,71 @@
+<h1 class="page-header">Create/Update tasks!!</h1>
+<form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+    <!-- table -->
+    <table class="tables">
+      <tr>
+        <td><b>Task Name</b></td>
+        <td><b>Description</b></td>
+        <td><b>Assignee</b></td>
+        <td><b>Sprint Backlog Item</b></td>
+        <td><b>Task Status</b></td>
+        <td><b>Estimated Effort</b></td>
+        <td><b>Actual Effort</b></td>
+        <td><b><span ng-show="tableform.$visible">Action</span></b></td>
+      </tr>
+      <tr ng-repeat="task in tasks | filter:filterTask">
+        <td>
+          <span editable-text="task.name" e-form="tableform">
+            {{ showName(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-text="task.description" e-form="tableform">
+            {{ showDescription(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-select="task.assignee._id" e-form="tableform" onshow="loadUsers()" e-ng-options="u._id as u.username for u in users">
+            {{ showUser(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-select="task.sprintBacklogId._id" e-form="tableform" onshow="loadSprintBacklogs()" e-ng-options="sb._id as sb.userStoryId.name for sb in sprintBacklogs">
+            {{ showSprintBacklog(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-select="task.statusId._id" e-form="tableform" onshow="loadStatuses()" e-ng-options="s._id as s.name for s in statuses">
+            {{ showStatus(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-text="task.estimatedEffort" e-form="tableform">
+            {{ showEstimatedEffort(task) }}
+          </span>
+        </td>
+        <td>
+          <span editable-text="task.actualEffort" e-form="tableform">
+            {{ showActualEffort(task) }}
+          </span>
+        </td>
+        <td>
+            <button type="button" ng-show="tableform.$visible" ng-click="deleteTask(task._id)" class="btn btn-danger pull-right">Delete</button>
+        </td>
+      </tr>
+    </table>
+
+    <!-- buttons -->
+    <div class="btn-edit">
+      <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+        Edit
+      </button>
+    </div>
+    <div class="btn-form" ng-show="tableform.$visible">
+      <button type="button" ng-disabled="tableform.$waiting" ng-click="addTask()" class="btn btn-default pull-right">Add Row</button>
+      <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">Save</button>
+      <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">Cancel</button>
+    </div> 
+    
+  </form>
+</div>

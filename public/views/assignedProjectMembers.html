@@ -1,0 +1,29 @@
+<h1 class="page-header">Assigned User List</h1>
+<label>List of assigned users for project: {{hiddenProjectName}}</label>
+<div class="forList">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Roles</th>
+              <th></th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in includedUserList">
+            <td>{{ user.userId.firstName || "empty" }}</td>
+            <td>{{ user.userId.lastName || "empty" }}</td>
+            <td>{{ user.userId.email || "empty" }}</td>
+                <td>
+                <a href="#" editable-select="user.roleId._id" onshow="loadRoles()" onaftersave="changeUserProjectRole(user.id,user.roleId._id)" 
+                    e-ng-options="p._id as p.name for p in roles">
+                        {{ user.roleId.name || 'not set' }}
+                </a>
+            </td>
+            <td><button class="btn btn-danger" ng-click="deleteUserFromProject(user.id)">Delete User from Project</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>

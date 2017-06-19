@@ -1,0 +1,16 @@
+<h1 class="page-header">User Profile</h1>
+<div class="col-md-4">
+<img src="../images/userDefaultImage.jpg" class="pull-xs-left img-circle col-md-10">
+</div>
+<div class="col-md-8" ng-init="getUserProfile()">
+    <form class="form-signin" method="get">       
+      <h2 class="form-signin-heading">Edit Profile</h2>
+      <label>User name</label><input type="text" class="form-control" ng-model="userName" placeholder="User Name" contenteditable="true"/><br/>
+      <label>First name</label><input type="text" class="form-control" ng-model="firstName" placeholder="First Name" contenteditable="true"/><br/>
+      <label>Last name</label><input type="text" class="form-control" ng-model="lastName" placeholder="Last Name" contenteditable="true"/><br/>
+      <label>Email address</label><input type="email" class="form-control" ng-model="emailAddress" placeholder="Email Address" contenteditable="true"/><br/>
+      <button class="btn btn-lg btn-primary btn-block" ng-click="editUser()" type="submit"><span class="glyphicon glyphicon-log-in"></span> Update</button>
+      </br>
+      <strong>{{message}}</strong>
+    </form>
+</div>

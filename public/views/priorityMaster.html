@@ -1,0 +1,52 @@
+    
+<div class="tab-content">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addPriorityModal">Add Priority</button>
+    <!-- Modal -->
+    <div>
+        <div class="modal fade" id="addPriorityModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Priority</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="Priority Name">Priority Name:</label>
+                            <input type="text" class="form-control" ng-model="priorityName">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Priority Description:</label>
+                                <textarea  ng-model="priorityDescription" class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-md" ng-click="addNewPriority()">Save Priority</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+<div class="forList">
+    <table class="tables">
+        <thead>
+            <tr>
+              <th>Priority Name</th>
+              <th>Priority Description</th>
+              <th></th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="priority in priorities">
+            <td><a href="#" onaftersave='updatePriority(priority._id,priority.name,priority.description)' editable-text="priority.name">{{ priority.name || "empty" }}</a></td>
+            <td><a href="#" onaftersave='updatePriority(priority._id,priority.name,priority.description)' editable-text="priority.description">{{ priority.description || "empty" }}</a></td>
+            <td><button type="button" class="btn btn-danger" ng-click="deletePriority(priority._id)">Delete</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>
+    </div>

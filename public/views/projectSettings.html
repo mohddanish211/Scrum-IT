@@ -1,0 +1,32 @@
+<h1 class="page-header">Project Settings/Assign Roles</h1>
+<div>
+    
+<button type="button" class="btn btn-info btn-md"><a ui-sref='homePage.assignedProjectMembers'>Goto Assigned Project Members</a></button><br/><br/>
+<label>List of unassigned users for project: {{hiddenProjectName}}</label>
+
+</div>
+<div class="forList">
+    <table class="tables">
+        <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Role</th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in userList">
+            <td>{{ user.firstName || "empty" }}</td>
+            <td>{{ user.lastName || "empty" }}</td>
+            <td>{{ user.email || "empty" }}</td>
+            <td>
+                <a href="#" editable-select="role.roleId" onshow="loadRoles()" onaftersave="addUserProjectRole(user._id)" 
+                    e-ng-options="p._id as p.name for p in roles">
+                        {{ role.roleName || 'not set' }}
+                </a>
+            </td>
+        </tr>
+         <tbody>
+    </table>
+</div>

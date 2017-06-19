@@ -1,0 +1,28 @@
+<div>
+<label>Details of previous sprints for project: {{hiddenProjectName}}</label>
+
+</div>
+<div class="forList">
+    <table class="tables">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Status</th>
+              <th>Created By</th>
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="sprint in sprints">
+            <td>{{ sprint.name || "empty" }}</td>
+            <td>{{ sprint.description || "empty" }}</td>
+            <td>{{ sprint.startDate || "empty" }}</td>
+            <td>{{ sprint.endDate || "empty" }}</td>
+            <td>{{ sprint.statusId.name || "empty" }}</td>
+            <td>{{ sprint.createdBy.username || "empty" }}</td>
+        </tr>
+         <tbody>
+    </table>
+</div>

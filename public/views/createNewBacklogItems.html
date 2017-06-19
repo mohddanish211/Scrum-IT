@@ -1,0 +1,93 @@
+<button class="btn btn-success" data-toggle="modal" data-target="#addUserStoryModal">Add New User Story <i class="fa fa-plus-circle"></i></button>
+ <!-- Modal -->
+ <br>
+ <br>
+    <div>
+        <div class="modal fade" id="addUserStoryModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add User Story</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="User Story Name">User Story Name:</label>
+                            <input type="text" class="form-control" ng-model="userStoryName">
+                            </div>
+                            <div class="form-group" >
+                                <label for="description">User Story Description:</label>
+                                <textarea ng-model="userStoryDescription" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                           <label for="priority">Priority :</label><br/>
+                           <a href="#" editable-select="priority.priorityId" onshow="loadPriorities()" 
+                                e-ng-options="p._id as p.name for p in priorities">
+                                {{ priority.priorityName || 'not set' }}
+                            </a>
+                            </div>
+                            <div class="form-group">
+                           <label for="userStoryType">User Story Type :</label><br/>
+                           <a href="#" editable-select="userStoryType.userStoryTypeId" onshow="loadUserStoryTypes()" 
+                                e-ng-options="ust._id as ust.name for ust in userStoryTypes">
+                                {{ userStoryType.userStoryTypeName || 'not set' }}
+                            </a>
+                            </div>
+                            
+                            
+                            <button type="button" class="btn btn-primary btn-md" ng-click="addNewUserStory()">Save User Story</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Getting list of all user stories -->   
+<br/>
+<div>
+    <table class="tables">
+        <thead>
+            <tr>
+              <th><b>Name</b></th>
+              <th>Description</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>User Story Type</th>
+              <th>Priority</th>
+              <th>Created By</th>
+              <th>Created Date</th>
+              <th>Modified Date</th>
+              <th>Options</th>
+              
+         </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="userStory in userStoryList">
+            <td><a href="#" onaftersave='editUserStory(userStory._id, userStory)' editable-text="userStory.name">{{ userStory.name || "empty" }}</a></td>
+            <td><a href="#" onaftersave='editUserStory(userStory._id, userStory)' editable-text="userStory.description">{{ userStory.description || "empty" }}</a></td>
+            <td>{{ userStory.projectId.name || "empty" }}</td>
+            <td>{{ userStory.statusId.name || 'not set' }}</td>
+            <td>
+                <a href="#" onaftersave='editUserStory(userStory._id, userStory)' editable-select="userStory.userStoryType" 
+                    onshow="loadUserStoryTypes()" e-ng-options="p._id as p.name for p in userStoryTypes">
+                                {{ userStory.userStoryType.name || 'not set' }}
+                </a>
+            </td>
+            <td>
+                <a href="#" onaftersave='editUserStory(userStory._id, userStory)' editable-select="userStory.priority" 
+                    onshow="loadPriorities()" e-ng-options="p._id as p.name for p in priorities">
+                                {{ userStory.priority.name || 'not set' }}
+                </a>
+            </td>
+            <td>{{ userStory.createdBy.username }}</td>
+            <td>{{ userStory.createdDate }}</td>
+            <td>{{ userStory.modifiedDate}}</td>
+            <td><button type="button" class="btn btn-danger" ng-click="deleteUserStory(userStory._id)">Delete</button></td>
+        </tr>
+         <tbody>
+    </table>
+</div>

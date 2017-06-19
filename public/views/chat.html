@@ -1,0 +1,32 @@
+<h1 class="page-header">Chat</h1>
+<div class='container'>
+  <div><b>
+    Welcome:</b> <span ng-model="nameOfTheUser"></span>
+    <div class='row'>
+      <div class='col-md-9'>
+        <textarea style='width: 50%; height: 100px' 
+             ng-disable='true' ng-model='messageLog'></textarea>
+      </div>
+    </div>
+    <div class='row'>
+      &nbsp;
+    </div>
+    <div class='row'>
+      <div class='col-md-8'>
+        <form role='form' novalidate name='form'>
+          <div class='form-group'>
+            <input type='text' style='width: 50%' 
+            required
+            ng-max='50' 
+            ng-model='message' 
+            focus>
+            <br>
+         <br><button class='btn btn-sm btn-primary' 
+              ng-enable='form.$valid'
+              ng-click="sendMessage(message)">Send!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
